@@ -272,8 +272,15 @@ def main():
         print("No solution.")
     else:
         creator.print(assignment)
-        if output:
-            creator.save(assignment, output)
+        # Save to user-specified file or default to output.png
+        target = output or "output.png"
+        try:
+            creator.save(assignment, target)
+            print(f"Saved crossword image to {target}")
+        except ImportError:
+            print("Install Pillow to enable image saving: pip install pillow")
+        except Exception as exc:  # keep printing result even if saving fails
+            print(f"Could not save image to {target}: {exc}")
 
 
 if __name__ == "__main__":
