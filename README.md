@@ -8,10 +8,11 @@ Constraint-satisfaction crossword generator that can run from the command line o
 
 ## CLI Usage
 ```bash
-python generate.py data/structure0.txt data/words0.txt           # print solution to terminal
-python generate.py data/structure0.txt data/words0.txt output.png # also save rendered image
+python generate.py data/structure0.txt data/words0.txt           # prints solution, also saves to output.png by default
+python generate.py data/structure0.txt data/words0.txt custom.png # override default save path
 ```
 Structures use `_` for open cells and any other character for blocks. Word lists should contain one word per line.
+If Pillow is missing, install it with `pip install pillow` to enable image saving.
 
 ## GUI Usage
 ```bash
